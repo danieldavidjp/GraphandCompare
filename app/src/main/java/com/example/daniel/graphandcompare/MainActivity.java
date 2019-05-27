@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private Button graphButton;
     private Button loadButton;
+    private Button tutorialButton;
 
 
     @Override
@@ -46,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        tutorialButton = (Button) findViewById(R.id.tutorialButton);
+        tutorialButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTutorial();
+            }
+        });
     }
 
     public void openPrepare() {
@@ -57,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
     public void openLoad() {
 
         Intent intent = new Intent(this, LoadActivity.class);
+        startActivity(intent);
+    }
+
+    public void openTutorial(){
+
+        Intent intent = new Intent(this, TutorialActivity.class);
         startActivity(intent);
     }
 

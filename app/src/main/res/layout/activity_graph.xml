@@ -15,6 +15,26 @@
         >
 
         <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/record"
+                android:layout_width="316dp"
+                android:layout_height="wrap_content"
+                android:text="grabar" />
+
+            <Button
+                android:id="@+id/stopRecord"
+                android:layout_width="249dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Parar" />
+
+        </LinearLayout>
+
         <com.newventuresoftware.waveform.WaveformView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -22,19 +42,6 @@
             app:mode="RECORDING"
             android:background="#000000"
             android:id="@+id/waveformView" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <Button
-                android:id="@+id/record"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="grabar"
-                />
-        </LinearLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
