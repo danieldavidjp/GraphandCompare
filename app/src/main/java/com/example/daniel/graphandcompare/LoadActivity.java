@@ -1,6 +1,7 @@
 package com.example.daniel.graphandcompare;
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.nbsp.materialfilepicker.MaterialFilePicker;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class LoadActivity extends AppCompatActivity {
@@ -21,6 +23,7 @@ public class LoadActivity extends AppCompatActivity {
     private Button playFile;
     private Button startButton;
     private MediaPlayer mediaPlayer;
+    FileInputStream fis=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,8 +81,10 @@ public class LoadActivity extends AppCompatActivity {
 
         String filePath = textFilePath.getText().toString();
         Log.i("info",filePath);
+        fis = new FileInputStream(filePath);
         mediaPlayer = new MediaPlayer();
-        mediaPlayer.setDataSource(filePath);
+        mediaPlayer.setDataSource(fis.getFD());
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         mediaPlayer.prepare();
         mediaPlayer.start();
     }
